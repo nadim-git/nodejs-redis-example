@@ -19,6 +19,20 @@ const getOrFetchData = async (key, query) => {
     return data;
 };
 
+const deleteRedisKey = async (key) => {
+    try {
+        const result = await redisClient.del(key);
+        if (result === 1) {
+            console.log(`Redis key deleted: ${key}`);
+        } else {
+            console.log(`Redis key not found: ${key}`);
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports = {
-    getOrFetchData
+    getOrFetchData,
+    deleteRedisKey
 }

@@ -18,6 +18,8 @@ redisClient.on('error', (error) => {
     console.error('Redis error:', error);
 });
 
+
+
 module.exports = {
     redisClient,
 };
